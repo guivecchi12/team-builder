@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './Form';
 
 function App() {
-  let [team, setTeam] = useState({
-    id: "",
-    whatever: ""
-  })
+  const [team, setTeam] = useState([
+    {
+      name: "Gui",
+      email: "",
+      role: ""
+    }])
+
+  const handleSubmit = (newMember) => {
+    setTeam([...team, newMember]);
+  };
+  console.log(team);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,7 +31,17 @@ function App() {
         >
           Learn React
         </a>
+        <Form onSubmit={handleSubmit}/>
+        <h2>Your team: </h2>
+        <div> {team.map(e=>(
+          <div>
+            <p>{e.name}</p>
+          </div>
+            ))}
+          
+        </div>
       </header>
+      
     </div>
   );
 }
