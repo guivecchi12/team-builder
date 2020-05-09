@@ -32,14 +32,12 @@ function App() {
           Learn React
         </a>
         <Form onSubmit={handleSubmit}/>
-        <h2>Your team: </h2>
-        <div> {team.map(e=>(
-          <div>
-            <p>{e.name}</p>
-          </div>
+        <h4>Your team: </h4>
+        <p> {team.map(e=>(
+            <span>{e.name}, </span>
             ))}
           
-        </div>
+        </p>
       </header>
       
     </div>
